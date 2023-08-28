@@ -21,8 +21,6 @@ body{
 .search{
     width: 100%;
     display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 
 .search input{
@@ -66,6 +64,7 @@ body{
     width: 16px;
 }
 
+
 .weather{
     display: none;
 }
@@ -75,4 +74,8 @@ body{
     font-size: 14px;
     margin-top: 10px;
     display: none;
+}
+.row{
+    display: flex;
+    justify-content: space-between;
 }
