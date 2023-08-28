@@ -26,8 +26,12 @@
                 <h3 class="weatherDesc">clear</h3>
             </div>
         </div>
-
+        <!-- <embed src="audio/sunny_day.mp3" loop="true" autostart="false" hidden="true" id="sunny_day_audio"> -->
+        <audio id="sunny_day_audio">
+            <source src= "audio/sunny_day.mp3" type="audio/mpeg">
+        </audio>
         <script>
+            let sunny_day = document.getElementById("sunny_day_audio");
             let currLat;
             let currLong;
             navigator.geolocation.getCurrentPosition(position => {
@@ -56,8 +60,10 @@
 
                 if(currData.weather[0].main == "Clouds"){
                     weatherIcon.src = "images/clouds.png"
+                    
                 } else if(currData.weather[0].main == "Clear"){
                     weatherIcon.src = "images/clear.png";
+                    sunny_day.play();
                 } else if(currData.weather[0].main == "Drizzle"){
                     weatherIcon.src = "images/drizzle.png";
                 } else if(currData.weather[0].main == "Mist"){
@@ -88,6 +94,7 @@
 
                     if(data.weather[0].main == "Clouds"){
                         weatherIcon.src = "images/clouds.png"
+                        sunny_day.pause();
                     } else if(data.weather[0].main == "Clear"){
                         weatherIcon.src = "images/clear.png";
                     } else if(data.weather[0].main == "Drizzle"){
