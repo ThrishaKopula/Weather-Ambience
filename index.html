@@ -26,7 +26,6 @@
                 <h3 class="weatherDesc">clear</h3>
             </div>
         </div>
-        <!-- <embed src="audio/sunny_day.mp3" loop="true" autostart="false" hidden="true" id="sunny_day_audio"> -->
         <audio id="sunny_day_audio">
             <source src= "audio/sunny_day.mp3" type="audio/mpeg">
         </audio>
@@ -73,7 +72,6 @@
                 } else if(currData.weather[0].main == "Snow"){
                     weatherIcon.src = "images/snow.png";
                 }
-
                 document.querySelector(".weather").style.display = "block";
                 document.querySelector(".error").style.display = "none";
             }
@@ -106,12 +104,10 @@
                     } else if(data.weather[0].main == "Snow"){
                         weatherIcon.src = "images/snow.png";
                     }
-
                     document.querySelector(".weather").style.display = "block";
                     document.querySelector(".error").style.display = "none";
                 }
             }
-
             searchBtn.addEventListener("click", ()=> {
                 if(searchBox.value!=''){
                     checkWeather(searchBox.value);
