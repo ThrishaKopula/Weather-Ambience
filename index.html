@@ -3,6 +3,10 @@
         <meta name="viewport" content=""width=device-width, initial-scale="1.0">
         <title>Weather Ambience</title>
         <link rel="stylesheet" href="style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;500&display=swap" rel="stylesheet">
     </head>
     <body>
         <div class="card">
@@ -58,7 +62,7 @@
                 var currData = await currLocationResponse.json();
                 console.log(currData)
                 document.querySelector(".city").innerHTML = currData.name;
-                document.querySelector(".temp").innerHTML = currData.main.temp + '°';
+                document.querySelector(".temp").innerHTML = Math.round(currData.main.temp)  + '°';
                 document.querySelector(".weatherDesc").innerHTML = currData.weather[0].main;
 
                 weatherTypeCheck(currData);
@@ -77,7 +81,7 @@
                     var data = await response.json();
 
                     document.querySelector(".city").innerHTML = data.name;
-                    document.querySelector(".temp").innerHTML = data.main.temp + '°';
+                    document.querySelector(".temp").innerHTML = Math.round(data.main.temp) + '°';
                     document.querySelector(".weatherDesc").innerHTML = data.weather[0].main;
 
                     weatherTypeCheck(data);
