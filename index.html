@@ -72,7 +72,6 @@
             }
 
             async function checkWeather(city){
-                
                 const response = await fetch(apiUrl+ city + `&appid=${apiKey}`);
                 if(response.status == 404){
                     document.querySelector(".error").style.display = "block";
@@ -91,6 +90,22 @@
             }
             
             function weatherTypeCheck(currData){
+                var time = new Date(Date.now()  + 1000 * currData.timezone);
+                var sunrise = new Date(currData.sys.sunrise * 1000);
+                var sunset = new Date(currData.sys.sunset * 1000);
+                console.log("sunset", new Date(currData.sys.sunset * 1000));
+                console.log("now", new Date(Date.now()  + 1000 * currData.timezone));
+                console.log("sunrise", new Date(currData.sys.sunrise * 1000));
+
+                if(time.getTime() >> sunset.getTime()){
+                    console.log("night")
+                    document.querySelector(".card").style.background = "linear-gradient(170deg, #011322, #827191)";
+
+                } else {
+                    console.log("day")
+                    document.querySelector(".card").style.background = "linear-gradient(170deg, #84acce, #827191)";
+                }
+                
                 if(currData.weather[0].main == "Clouds"){
                     weatherIcon.src = "images/clouds.png";
                 } else if(currData.weather[0].main == "Clear"){
@@ -112,6 +127,7 @@
             searchBtn.addEventListener("click", ()=> {
                 if(searchBox.value!=''){
                     checkWeather(searchBox.value);
+                    searchBox.value = ""
                 }
             })
             searchBox.addEventListener("click", ()=> {
@@ -124,6 +140,7 @@
             input.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
                 document.getElementById("searchButton").click();
+                searchBox.value = "";
             }
             });
         </script>
