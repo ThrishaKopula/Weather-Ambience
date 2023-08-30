@@ -99,10 +99,10 @@
 
                 if(time.getTime() < sunrise.getTime() && time.getTime() > sunset.getTime()){
                     console.log("night")
-                    document.querySelector(".card").style.background = "linear-gradient(170deg, #011322, #827191)";
+                    document.querySelector(".card").style.background = "linear-gradient(180deg, #38507d, #dec191)";
                 } else if(time.getTime() < sunset.getTime() && time.getTime() > sunrise.getTime()){
                     console.log("day")
-                    document.querySelector(".card").style.background = "linear-gradient(170deg, #84acce, #827191)";
+                    document.querySelector(".card").style.background = "linear-gradient(180deg, #ded6a7, #90a9de)";
                 }
                 
                 if(currData.weather[0].main == "Clouds"){
