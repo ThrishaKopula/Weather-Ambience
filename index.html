@@ -90,18 +90,17 @@
             }
             
             function weatherTypeCheck(currData){
-                var time = new Date(Date.now()  + 1000 * currData.timezone);
+                var time = new Date(Date.now());
                 var sunrise = new Date(currData.sys.sunrise * 1000);
                 var sunset = new Date(currData.sys.sunset * 1000);
-                console.log("sunset", new Date(currData.sys.sunset * 1000));
-                console.log("now", new Date(Date.now()  + 1000 * currData.timezone));
-                console.log("sunrise", new Date(currData.sys.sunrise * 1000));
+                console.log("sunset", sunset);
+                console.log("now", time);
+                console.log("sunrise", sunrise);
 
-                if(time.getTime() >> sunset.getTime()){
+                if(time.getTime() < sunrise.getTime() && time.getTime() > sunset.getTime()){
                     console.log("night")
                     document.querySelector(".card").style.background = "linear-gradient(170deg, #011322, #827191)";
-
-                } else {
+                } else if(time.getTime() < sunset.getTime() && time.getTime() > sunrise.getTime()){
                     console.log("day")
                     document.querySelector(".card").style.background = "linear-gradient(170deg, #84acce, #827191)";
                 }
