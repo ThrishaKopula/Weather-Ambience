@@ -25,13 +25,13 @@
             </div>
             <div class="weather">
                 <img src="images/rain.png" class="weather-icon">
+                <h1 class="city">New York</h1>
                 <div class="weatherRow">
-                    <h1 class="temp">22°f</h1>
-                    <h1 class="divider"> | </h1>
-                    <h1 class="city">New York</h1>
+                    <h2 class="temp">22°f</h2>
+                    <h2 class="divider"> | </h2>
+                    <h2 class="weatherDesc">clear</h2>
                 </div>
                 
-                <h3 class="weatherDesc">clear</h3>
             </div>
         </div>
         <audio id="sunny_day_audio" loop>
@@ -113,19 +113,28 @@
                 
                 if(currData.weather[0].main == "Clouds"){
                     weatherIcon.src = "images/clouds.png";
+                    rainy_day.pause();
+                    sunny_day.play();
                 } else if(currData.weather[0].main == "Clear"){
                     weatherIcon.src = "images/clear.png";
+                    rainy_day.pause();
                     sunny_day.play();
                 } else if(currData.weather[0].main == "Drizzle"){
                     weatherIcon.src = "images/drizzle.png";
-                    rainy_day.play()
+                    sunny_day.pause();
+                    rainy_day.play();
                 } else if(currData.weather[0].main == "Mist"){
                     weatherIcon.src = "images/mist.png";
+                    sunny_day.pause();
+                    rainy_day.play();
                 } else if(currData.weather[0].main == "Rain"){
                     weatherIcon.src = "images/rain.png";
-                    rainy_day.play()
+                    sunny_day.pause();
+                    rainy_day.play();
                 } else if(currData.weather[0].main == "Snow"){
                     weatherIcon.src = "images/snow.png";
+                    rainy_day.pause();
+                    sunny_day.play();
                 }
             }
             
