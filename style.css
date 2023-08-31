@@ -5,12 +5,12 @@
     box-sizing: border-box;
 }
 body{
-    background: #222;
+    background: linear-gradient(180deg, #84acce, #827191); 
 }
 .card{
     width: 90%;
     max-width: 470px;
-    background: linear-gradient(180deg, #84acce, #827191); 
+    /* background: linear-gradient(180deg, #84acce, #827191);  */
     color: #fff;
     margin: 100px auto 0;
     border-radius: 10px;
