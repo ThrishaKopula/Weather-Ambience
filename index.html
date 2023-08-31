@@ -25,8 +25,12 @@
             </div>
             <div class="weather">
                 <img src="images/rain.png" class="weather-icon">
-                <h1 class="temp">22°f</h1>
-                <h2 class="city">New York</h2>
+                <div class="weatherRow">
+                    <h1 class="temp">22°f</h1>
+                    <h1 class="divider"> | </h1>
+                    <h1 class="city">New York</h1>
+                </div>
+                
                 <h3 class="weatherDesc">clear</h3>
             </div>
         </div>
@@ -37,6 +41,7 @@
             <source src= "audio/rainy_day.mp3" type="audio/mpeg">
         </audio>
         <script>
+            
             let sunny_day = document.getElementById("sunny_day_audio");
             let rainy_day = document.getElementById("rainy_day_audio");
             let currLat;
@@ -55,7 +60,7 @@
             const weatherIcon = document.querySelector(".weather-icon");
 
             const currButton = document.querySelector(".current button");
-
+            
             async function displayCurrent(){
                 
                 const currLocationResponse = await fetch(locationUrl + currLat + `&lon=${currLong}` + `&appid=${apiKey}`);
@@ -70,7 +75,6 @@
                 document.querySelector(".weather").style.display = "block";
                 document.querySelector(".error").style.display = "none";
             }
-
             async function checkWeather(city){
                 const response = await fetch(apiUrl+ city + `&appid=${apiKey}`);
                 if(response.status == 404){
